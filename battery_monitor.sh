@@ -14,6 +14,9 @@ do
 clear
 BATTSTATESTR=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep 'state')
 BATTSTATE=${BATTSTATESTR:25}
+BATTPERCSTRING=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep 'percentage')
+BATTPERCSTRING=${BATTPERCSTRING::-1}
+BATTPERC=${BATTPERCSTRING:21:23}
 
 echo "LAPTOP SYSTEM MONITOR"
 echo -n -e "    CPU \t\t "
